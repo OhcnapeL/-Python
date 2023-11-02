@@ -2,9 +2,15 @@ numbers = [2, -93, -2, 8, None, -44, -1, -85, -14, 90, -22, -90, -100, -8, 38, -
 
 # TODO заменить значение пропущенного элемента средним арифметическим
 
-sum_of_num = sum(numbers[:4]) + sum(numbers[5:])
+for index, value in enumerate(numbers):
+    if value is None:
+        index_none = index
+
+sum_of_num = sum(numbers[:index_none]) + sum(numbers[index_none + 1:])
 count_of_num = len(numbers)
 average_of_num = sum_of_num / count_of_num
-numbers[4] = round(average_of_num, 2)
+for i in range(len(numbers)):
+    if numbers[i] is None:
+        numbers[i] = average_of_num
 
 print("Измененный список:", numbers)
